@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66b1739470d6d4c9bd66eba92f91aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Blue
+  unitName: 
   unitLevel: 100
   damage: 25
   maxHP: 30

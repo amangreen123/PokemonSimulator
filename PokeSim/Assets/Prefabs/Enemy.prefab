@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66b1739470d6d4c9bd66eba92f91aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Dummy
+  unitName: 
   unitLevel: 2
   damage: 5
   maxHP: 30

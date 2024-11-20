@@ -23,17 +23,23 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    public PokeAPI pokeData;
+
     void Start()
     {
         state = BattleState.START;
+        pokeData.GenerateRequest();
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
         //this allows me to get access to player and enemy units
+
+
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
+
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
@@ -77,6 +83,7 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
+        
         //check if enemy is dead
         //change state based on 
     }
@@ -91,6 +98,7 @@ public class BattleSystem : MonoBehaviour
 
             dialogueText.text = "You Were Defeated";
         }
+
     }
 
     IEnumerator EnemyTurn()
@@ -130,7 +138,6 @@ public class BattleSystem : MonoBehaviour
        
         StartCoroutine(EnemyTurn());
    }
-
 
     public void OnAttackButton()
     {
