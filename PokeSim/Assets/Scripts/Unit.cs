@@ -1,19 +1,19 @@
 using Palmmedia.ReportGenerator.Core;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Unit : MonoBehaviour
 {
     public string unitName;
     public int unitLevel;
-
     public int damage;
-
     public int maxHP;
     public int currentHP;
-
+   
 
     public bool TakeDamage(int dmg)
     {

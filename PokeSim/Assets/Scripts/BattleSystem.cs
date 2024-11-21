@@ -35,16 +35,17 @@ public class BattleSystem : MonoBehaviour
     IEnumerator SetupBattle()
     {
         //this allows me to get access to player and enemy units
-
-
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+        GameObject playerGO = Instantiate(playerPrefab,playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
-
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
+        
+        //Debug.Log(playerUnit.pokeImage.texture);
 
-        dialogueText.text = "A Crazy" + enemyUnit.unitName + "approaches";
+        dialogueText.text = "A Crazy " + enemyUnit.unitName + " approaches";
+
+        Debug.Log(playerUnit.unitName);
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);

@@ -13,18 +13,19 @@ public class PokeAPI : MonoBehaviour
 
     private const string URL = "https://pokeapi.co/api/v2/pokemon/";
     private const string HOST = "https://pokeapi.co/api/v2/";
-    
-   //[SerializeField] private TMP_Text PokeUIText;
+
+    //[SerializeField] private TMP_Text PokeUIText;
     //[SerializeField] private RawImage PokeIcon;
 
-    public Unit unit;
+    public Unit Player;
+    public Unit Enemy;
 
-    public void GenerateRequest()
+    public IEnumerator GenerateRequest()
     {
         int randomNum = Random.Range(1, 899);
         string randomPokemon = URL + randomNum.ToString();
 
-        StartCoroutine(ProcessRequest(randomPokemon));
+        yield return StartCoroutine(ProcessRequest(randomPokemon));
     }
 
     public IEnumerator ProcessRequest(string url)
@@ -44,7 +45,7 @@ public class PokeAPI : MonoBehaviour
                 JSONNode PokeData = JSON.Parse(request.downloadHandler.text);
                 
                 //Debug.Log($"Generated Pokemon is:  \nName: " + PokeData["name"]);
-                Debug.Log($"Type:{PokeData["types"][0]["type"]["name"]}");
+                //Debug.Log($"Type:{PokeData["types"][0]["type"]["name"]}");
   
                 string poke_name = PokeData["name"];
                 string poke_image_url = PokeData["sprites"]["front_shiny"];
@@ -54,15 +55,34 @@ public class PokeAPI : MonoBehaviour
             
                 if(pokeImageRequest.result != UnityWebRequest.Result.Success)
                 {
+                    Debug.LogError("Image download error: " + pokeImageRequest.error);
                     Debug.LogError(pokeImageRequest.error);
                     yield break;
                 }
+
                   //PokeUIText.text = poke_name;
                   //PokeIcon.texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
                   //PokeIcon.texture.filterMode = FilterMode.Point;
+                  
+                    Player.unitName = poke_name;
+                    Enemy.unitName = poke_name;
 
-                  unit.unitName = poke_name;
-                  //Debug.Log("Name" + " "+ unit.unitName);
+                    Debug.Log("Player Pokemon " + Player.unitName);
+                    Debug.Log("Enemy  POkemon " + Enemy.unitName);
+
+                    Texture2D texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
+                    
+                    //Debug.Log($"Downloaded Texture Size: {texture.width}x{texture.height}");
+                    
+                    //Player.pokeImage.texture = texture;
+                    //Enemy.pokeImage.texture = texture;
+
+                    //Player.pokeImage.texture.filterMode = FilterMode.Point;
+                    //Enemy.pokeImage.texture.filterMode = FilterMode.Point;
+                    
+            
+                //Debug.Log("Image URL: " + poke_image_url);
+                //Debug.Log("Name" + " "+ unit.unitName);
             }
         }
 
