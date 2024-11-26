@@ -24,9 +24,15 @@ public class PokeAPI : MonoBehaviour
     {
         int randomNum = Random.Range(1, 899);
         string randomPokemon = URL + randomNum.ToString();
-
-        yield return StartCoroutine(ProcessRequest(randomPokemon));
+        yield return ProcessRequest(randomPokemon);
     }
+
+    public void AssignUnits(Unit player, Unit enemy)
+    {
+        Player = player;
+        Enemy = enemy;
+    }
+
 
     public IEnumerator ProcessRequest(string url)
     {
@@ -50,37 +56,37 @@ public class PokeAPI : MonoBehaviour
                 string poke_name = PokeData["name"];
                 string poke_image_url = PokeData["sprites"]["front_shiny"];
 
+                
                 UnityWebRequest pokeImageRequest = UnityWebRequestTexture.GetTexture(poke_image_url);
+                
                 yield return pokeImageRequest.SendWebRequest();
             
                 if(pokeImageRequest.result != UnityWebRequest.Result.Success)
                 {
                     Debug.LogError("Image download error: " + pokeImageRequest.error);
                     Debug.LogError(pokeImageRequest.error);
+                    
                     yield break;
                 }
-
-                  //PokeUIText.text = poke_name;
-                  //PokeIcon.texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
-                  //PokeIcon.texture.filterMode = FilterMode.Point;
                   
                     Player.unitName = poke_name;
                     Enemy.unitName = poke_name;
 
-                    Debug.Log("Player Pokemon " + Player.unitName);
-                    Debug.Log("Enemy  POkemon " + Enemy.unitName);
-
                     Texture2D texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
                     
-                    //Debug.Log($"Downloaded Texture Size: {texture.width}x{texture.height}");
+                    Player.pokeImage.texture = texture;
+                    Enemy.pokeImage.texture = texture;
                     
-                    //Player.pokeImage.texture = texture;
-                    //Enemy.pokeImage.texture = texture;
+                    Player.pokeImage.texture.filterMode = FilterMode.Point;
+                    Enemy.pokeImage.texture.filterMode = FilterMode.Point;
 
-                    //Player.pokeImage.texture.filterMode = FilterMode.Point;
-                    //Enemy.pokeImage.texture.filterMode = FilterMode.Point;
-                    
-            
+
+                Debug.Log("Player Image Set: " + Player.pokeImage.texture.name);
+                Debug.Log("Enemy Image Set: " + Enemy.pokeImage.texture.name);
+                //PokeIcon.texture = texture;
+                //PokeIcon.texture.filterMode = FilterMode.Point;
+
+
                 //Debug.Log("Image URL: " + poke_image_url);
                 //Debug.Log("Name" + " "+ unit.unitName);
             }

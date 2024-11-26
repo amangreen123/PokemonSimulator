@@ -1003,8 +1003,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776899473}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74, y: -2.56, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.7400002, y: -2.5600002, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1078,7 +1078,7 @@ Canvas:
   m_GameObject: {fileID: 864106689}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -1787,8 +1787,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466009196}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.07, y: 1.07, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0700002, y: 1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2680,8 +2680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21c50dec2918c841a7e7bf94ae17570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 9175428395378454554, guid: fa8c12cd3ad0ff745af030eda7446885, type: 3}
-  enemyPrefab: {fileID: 687155584590592764, guid: 7f5b3334bdd28a84da244d36b3bd522d, type: 3}
+  playerPrefab: {fileID: 6296719085523977485, guid: aa393e881e173c7408cc46515da64545, type: 3}
+  enemyPrefab: {fileID: 4688263046088736964, guid: cdc5d1ec7d396794d91cc88b869e818c, type: 3}
   playerBattleStation: {fileID: 776899475}
   enemyBattleStation: {fileID: 1466009198}
   dialogueText: {fileID: 1584004651}
@@ -2689,6 +2689,7 @@ MonoBehaviour:
   playerHUD: {fileID: 1727677078}
   enemyHUD: {fileID: 1290496122}
   pokeData: {fileID: 1979851126}
+  Canvas: {fileID: 864106692}
 --- !u!4 &1979851125
 Transform:
   m_ObjectHideFlags: 0
@@ -2716,8 +2717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb70806ae1078e4684ec7689736014a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 484372936148725154, guid: fa8c12cd3ad0ff745af030eda7446885, type: 3}
-  Enemy: {fileID: 1793623387495461702, guid: 7f5b3334bdd28a84da244d36b3bd522d, type: 3}
+  Player: {fileID: 2553112978424033271, guid: aa393e881e173c7408cc46515da64545, type: 3}
+  Enemy: {fileID: 5223074689345281258, guid: cdc5d1ec7d396794d91cc88b869e818c, type: 3}
 --- !u!1 &2030360574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,6 +2841,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 864106693}
   - {fileID: 1062034442}
+  - {fileID: 1979851125}
   - {fileID: 1466009198}
   - {fileID: 776899475}
-  - {fileID: 1979851125}

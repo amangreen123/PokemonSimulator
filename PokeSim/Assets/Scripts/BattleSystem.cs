@@ -25,35 +25,45 @@ public class BattleSystem : MonoBehaviour
 
     public PokeAPI pokeData;
 
+    [SerializeField]
+    private Canvas Canvas;
+    
     void Start()
     {
         state = BattleState.START;
-        pokeData.GenerateRequest();
+        
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
         //this allows me to get access to player and enemy units
-        GameObject playerGO = Instantiate(playerPrefab,playerBattleStation);
+        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
-        
-        //Debug.Log(playerUnit.pokeImage.texture);
+
+        //playerGO.transform.SetParent(Canvas.transform, false);
+        //enemyGO.transform.SetParent(Canvas.transform, false);
+
+        pokeData.AssignUnits(playerUnit,enemyUnit);
+
+        yield return pokeData.GenerateRequest();
+
+        Debug.Log(playerUnit.pokeImage.texture);
 
         dialogueText.text = "A Crazy " + enemyUnit.unitName + " approaches";
 
-        Debug.Log(playerUnit.unitName);
-
+        Debug.Log("Player " + playerUnit.unitName);
+        Debug.Log("Enemy " + enemyUnit.unitName);
+        
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
-
+        
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
-        
         PlayerTurn();
     }
 
@@ -70,7 +80,6 @@ public class BattleSystem : MonoBehaviour
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful";
 
-
         yield return new WaitForSeconds(2f);
 
         if (isDead)
@@ -78,8 +87,9 @@ public class BattleSystem : MonoBehaviour
             //end the battle
             state = BattleState.WON;
             EndBattle();
-        }else
-        {
+
+        }else {
+            
             //Enemy turn
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
