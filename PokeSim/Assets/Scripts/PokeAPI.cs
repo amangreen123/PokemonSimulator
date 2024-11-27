@@ -24,6 +24,7 @@ public class PokeAPI : MonoBehaviour
     {
         int randomNum = Random.Range(1, 899);
         string randomPokemon = URL + randomNum.ToString();
+        
         yield return ProcessRequest(randomPokemon);
     }
 
@@ -32,7 +33,6 @@ public class PokeAPI : MonoBehaviour
         Player = player;
         Enemy = enemy;
     }
-
 
     public IEnumerator ProcessRequest(string url)
     {
@@ -47,13 +47,13 @@ public class PokeAPI : MonoBehaviour
                 Debug.Log("ERROR: " + request.error);
         
             } else {  
-
                 JSONNode PokeData = JSON.Parse(request.downloadHandler.text);
                 
                 //Debug.Log($"Generated Pokemon is:  \nName: " + PokeData["name"]);
                 //Debug.Log($"Type:{PokeData["types"][0]["type"]["name"]}");
-  
+                
                 string poke_name = PokeData["name"];
+                string enemy_name = PokeData["name"];
                 string poke_image_url = PokeData["sprites"]["front_shiny"];
 
                 
@@ -70,7 +70,7 @@ public class PokeAPI : MonoBehaviour
                 }
                   
                     Player.unitName = poke_name;
-                    Enemy.unitName = poke_name;
+                    Enemy.unitName = enemy_name;
 
                     Texture2D texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
                     
@@ -79,22 +79,12 @@ public class PokeAPI : MonoBehaviour
                     
                     Player.pokeImage.texture.filterMode = FilterMode.Point;
                     Enemy.pokeImage.texture.filterMode = FilterMode.Point;
-
-
-                Debug.Log("Player Image Set: " + Player.pokeImage.texture.name);
-                Debug.Log("Enemy Image Set: " + Enemy.pokeImage.texture.name);
-                //PokeIcon.texture = texture;
-                //PokeIcon.texture.filterMode = FilterMode.Point;
-
-
-                //Debug.Log("Image URL: " + poke_image_url);
-                //Debug.Log("Name" + " "+ unit.unitName);
             }
         }
-
-
       
     }
+
+
 
 
 }

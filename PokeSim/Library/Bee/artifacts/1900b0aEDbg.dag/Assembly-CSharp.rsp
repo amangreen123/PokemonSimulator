@@ -356,6 +356,7 @@
 "Assets/Scripts/BattleHUD.cs"
 "Assets/Scripts/BattleSystem.cs"
 "Assets/Scripts/PokeAPI.cs"
+"Assets/Scripts/PokeMoves.cs"
 "Assets/Scripts/SimpleJSON.cs"
 "Assets/Scripts/SimpleJSONUnity.cs"
 "Assets/Scripts/Unit.cs"
