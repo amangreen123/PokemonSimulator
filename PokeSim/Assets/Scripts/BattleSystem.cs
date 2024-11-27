@@ -27,6 +27,8 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField]
     private Canvas Canvas;
+
+    public DialougeControl dialougeControl;
     
     void Start()
     {
@@ -70,9 +72,22 @@ public class BattleSystem : MonoBehaviour
     void PlayerTurn ()
     {
         dialogueText.text = "Choose an action";
+        dialougeControl.EnableActionSelector(true);
+        dialougeControl.EnableMoveSelector(false);
     }
 
-    IEnumerator PlayerAttack()
+    public void OnMoveButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        dialougeControl.EnableActionSelector(false);
+        dialougeControl.EnableMoveSelector(true);
+    }
+
+        IEnumerator PlayerAttack()
     {
         //Damage Enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
@@ -166,5 +181,7 @@ public class BattleSystem : MonoBehaviour
 
         StartCoroutine(PlayerHeal());
     }
+
+
 
 }

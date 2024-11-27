@@ -9,15 +9,17 @@ using SimpleJSON;
 
 public class PokeMoves : MonoBehaviour
 {
-    //string name;
-    //string type;
-    //string maxxPP;
-    //string power;
-    //string accuracy;
+    private string name;
+    private string type;
+    private string maxxPP;
+    private string power;
+    private string accuracy;
 
     private const string URL = "https://pokeapi.co/api/v2/move/1";
     private const string HOST = "https://pokeapi.co/api/v2/";
-    
+
+
+    DialougeControl DC;
     
     //public IEnumerator GenerateMoves()
     //{
@@ -50,8 +52,23 @@ public class PokeMoves : MonoBehaviour
                 
                 string MoveName = MoveData["name"];
                 string MoveType = MoveData["type"]["name"];
+                string MoveAccuracy = MoveData["accuracy"];
+                string PP = MoveData["pp"];
+                string power = MoveData["power"];
 
-                Debug.Log($"Generated Pokemon Move:\n" + $"Name: {MoveName}\n" + $"Type: {MoveType}");
+                Debug.Log($"Generated Pokemon Move:\n" +
+                    $"Name: {MoveName}\n" +
+                    $"Type: {MoveType}\n" +
+                    $"Accuracy: {MoveAccuracy}\n" +
+                    $"Max PP: {PP}\n" +
+                    $"Power: {power}");
+
+
+                name = MoveName;
+                type = MoveType;
+                maxxPP = PP;
+
+
             }
         }
 

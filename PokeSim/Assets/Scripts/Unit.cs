@@ -10,7 +10,6 @@ public class Unit : MonoBehaviour
 {
     public string unitName;
     public int unitLevel;
-    //public List<PokeMoves> moves;
     public int damage;
     public int maxHP;
     public int currentHP;
