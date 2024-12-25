@@ -112,7 +112,7 @@ public class BattleSystem : MonoBehaviour
         
         //check if enemy is dead
         //change state based on 
-    }
+        }
 
     void EndBattle()
     {

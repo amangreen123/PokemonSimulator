@@ -57,10 +57,18 @@ public class PokeAPI : MonoBehaviour
                 //Debug.Log($"Type:{PokeData["types"][0]["type"]["name"]}");
                 
                 string poke_name = PokeData["name"];
-                string enemy_name = PokeData["name"];
-                string poke_image_url = PokeData["sprites"]["front_shiny"];
+                string poke_image_url = PokeData["sprites"];
 
-                
+                if (unit == Player)
+                {
+                    poke_image_url = PokeData["sprites"]["back_shiny"];
+                }
+                else if (unit == Enemy)
+                {
+                    poke_image_url = PokeData["sprites"]["front_shiny"];
+                }
+
+
                 UnityWebRequest pokeImageRequest = UnityWebRequestTexture.GetTexture(poke_image_url);
                 
                 yield return pokeImageRequest.SendWebRequest();
@@ -73,19 +81,10 @@ public class PokeAPI : MonoBehaviour
                     yield break;
                 }
                   
-                    //Player.unitName = poke_name;
-                    //Enemy.unitName = enemy_name;
-
                     unit.unitName = poke_name;
 
                     Texture2D texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
-                    
-                    //Player.pokeImage.texture = texture;
-                    //Enemy.pokeImage.texture = texture;
-                    
-                    //Player.pokeImage.texture.filterMode = FilterMode.Point;
-                    //Enemy.pokeImage.texture.filterMode = FilterMode.Point;
-
+     
                     unit.pokeImage.texture = texture;
                     unit.pokeImage.texture.filterMode = FilterMode.Point;
             }

@@ -20,10 +20,11 @@ public class PokeMoves : MonoBehaviour
 
     [SerializeField] DialougeControl DC;
     [SerializeField] Unit Enemy;
-    [SerializeField] Unit Player;
+    [SerializeField] Unit Player;  
 
     public void PlayMoves()
     {
+       
         StartCoroutine(GetMoves(URL));
     }
 
@@ -72,8 +73,9 @@ public class PokeMoves : MonoBehaviour
             }
         }
 
-
     }
+
+
 
     public class MoveStore
     {
