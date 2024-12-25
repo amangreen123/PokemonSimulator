@@ -17,15 +17,19 @@ public class PokeAPI : MonoBehaviour
     //[SerializeField] private TMP_Text PokeUIText;
     //[SerializeField] private RawImage PokeIcon;
 
-    public Unit Player;
-    public Unit Enemy;
+    public Unit Player; // Player's Pokémon
+    public Unit Enemy;  // Enemy's Pokémon
 
     public IEnumerator GenerateRequest()
     {
-        int randomNum = Random.Range(1, 899);
-        string randomPokemon = URL + randomNum.ToString();
+        int playerId = Random.Range(1, 899);
+        int enemyId = Random.Range(1, 899);
+
+        string randomPlayerPokemon = URL + playerId.ToString();
+        string randomEnemyPokemon = URL + enemyId.ToString();
         
-        yield return ProcessRequest(randomPokemon);
+        yield return ProcessRequest(randomPlayerPokemon,Enemy);
+        yield return ProcessRequest(randomEnemyPokemon,Player);
     }
 
     public void AssignUnits(Unit player, Unit enemy)
@@ -34,7 +38,7 @@ public class PokeAPI : MonoBehaviour
         Enemy = enemy;
     }
 
-    public IEnumerator ProcessRequest(string url)
+    public IEnumerator ProcessRequest(string url, Unit unit)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -69,16 +73,21 @@ public class PokeAPI : MonoBehaviour
                     yield break;
                 }
                   
-                    Player.unitName = poke_name;
-                    Enemy.unitName = enemy_name;
+                    //Player.unitName = poke_name;
+                    //Enemy.unitName = enemy_name;
+
+                    unit.unitName = poke_name;
 
                     Texture2D texture = DownloadHandlerTexture.GetContent(pokeImageRequest);
                     
-                    Player.pokeImage.texture = texture;
-                    Enemy.pokeImage.texture = texture;
+                    //Player.pokeImage.texture = texture;
+                    //Enemy.pokeImage.texture = texture;
                     
-                    Player.pokeImage.texture.filterMode = FilterMode.Point;
-                    Enemy.pokeImage.texture.filterMode = FilterMode.Point;
+                    //Player.pokeImage.texture.filterMode = FilterMode.Point;
+                    //Enemy.pokeImage.texture.filterMode = FilterMode.Point;
+
+                    unit.pokeImage.texture = texture;
+                    unit.pokeImage.texture.filterMode = FilterMode.Point;
             }
         }
       

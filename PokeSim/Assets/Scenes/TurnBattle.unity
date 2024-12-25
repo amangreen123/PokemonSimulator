@@ -1124,7 +1124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &625564081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1552,7 +1552,7 @@ GameObject:
   - component: {fileID: 824377752}
   - component: {fileID: 824377751}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Move4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2148,7 +2148,7 @@ GameObject:
   - component: {fileID: 1107604661}
   - component: {fileID: 1107604660}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Move1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2678,7 +2678,7 @@ GameObject:
   - component: {fileID: 1462313965}
   - component: {fileID: 1462313964}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Move2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2922,7 +2922,7 @@ GameObject:
   - component: {fileID: 1574315682}
   - component: {fileID: 1574315681}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Move3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3193,10 +3193,10 @@ RectTransform:
   - {fileID: 192218620}
   m_Father: {fileID: 625564081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1648434816
 GameObject:
@@ -3929,6 +3929,7 @@ GameObject:
   - component: {fileID: 1979851125}
   - component: {fileID: 1979851124}
   - component: {fileID: 1979851126}
+  - component: {fileID: 1979851127}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -3988,6 +3989,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 2553112978424033271, guid: aa393e881e173c7408cc46515da64545, type: 3}
   Enemy: {fileID: 5223074689345281258, guid: cdc5d1ec7d396794d91cc88b869e818c, type: 3}
+--- !u!114 &1979851127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979851123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a6400de24f7ac41be1843664ee1bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 
+  maxxPP: 
+  movePower: 0
+  accuracy: 
+  DC: {fileID: 2108448463}
+  Enemy: {fileID: 5223074689345281258, guid: cdc5d1ec7d396794d91cc88b869e818c, type: 3}
+  Player: {fileID: 2553112978424033271, guid: aa393e881e173c7408cc46515da64545, type: 3}
 --- !u!1 &2030360574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,14 +4204,16 @@ MonoBehaviour:
   actionSelector: {fileID: 874584806}
   moveSelector: {fileID: 625564080}
   moveDetails: {fileID: 2133724503}
-  actionTexts:
-  - {fileID: 1107604660}
   moveTexts:
   - {fileID: 1107604660}
+  - {fileID: 1462313964}
+  - {fileID: 1574315681}
+  - {fileID: 824377751}
   ppText: {fileID: 132624763}
   typeText: {fileID: 1553712167}
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   battleSystem: {fileID: 1979851124}
+  PokeMoves: {fileID: 1979851127}
 --- !u!1 &2125445635
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,10 +4379,10 @@ RectTransform:
   - {fileID: 1553712166}
   m_Father: {fileID: 625564081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -10,7 +10,6 @@ public class DialougeControl : MonoBehaviour
     [SerializeField] GameObject moveSelector;
     [SerializeField] GameObject moveDetails;
 
-    [SerializeField] List<Text> actionTexts;
     [SerializeField] List<Text> moveTexts;
 
      public Text ppText;
@@ -19,6 +18,7 @@ public class DialougeControl : MonoBehaviour
     [SerializeField] Color highlightColor;
 
     [SerializeField] BattleSystem battleSystem;
+    [SerializeField] PokeMoves PokeMoves;
 
     public void EnableDialogText(bool enabled)
     {
@@ -34,21 +34,14 @@ public class DialougeControl : MonoBehaviour
     {
         moveSelector.SetActive(enabled);
         moveDetails.SetActive(enabled);
+        PokeMoves.PlayMoves();
     }
 
-    //public void UpdateActionSelection(int selectedAction)
-    //{
-    //    for (int i = 0; i < actionTexts.Count; i++)
-    //    {
-    //        if (i == selectedAction)
-    //        {
-    //            actionTexts[i].color = highlightColor;
+    public void UpdateMoveDetails(string moveName, string moveType, string maxPP)
+    {
+        moveTexts[1].text = moveName;
+        ppText.text = "PP:" + maxPP;
+        typeText.text ="Type " +  moveType;
+    }
 
-    //        }
-    //        else
-    //        {
-    //            actionTexts[i].color = Color.black;
-    //        }
-    //    }
-    //}
 }

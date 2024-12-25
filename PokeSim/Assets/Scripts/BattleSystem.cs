@@ -88,7 +88,7 @@ public class BattleSystem : MonoBehaviour
     }
 
         IEnumerator PlayerAttack()
-    {
+        {
         //Damage Enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
