@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,14 @@ public class DialougeControl : MonoBehaviour
 
     [SerializeField] List<Text> moveTexts;
 
-     public Text ppText;
-     public Text typeText;
-
     [SerializeField] Color highlightColor;
 
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] PokeMoves PokeMoves;
+
+    [SerializeField] Text ppText;
+    [SerializeField] Text typeText;
+   
 
     public void EnableDialogText(bool enabled)
     {
@@ -37,11 +39,30 @@ public class DialougeControl : MonoBehaviour
         PokeMoves.PlayMoves();
     }
 
-    public void UpdateMoveDetails(string moveName, string moveType, string maxPP)
+    //public void UpdateMoveDetails(string moveName, string moveType, string maxPP)
+    //{
+    //    moveTexts[1].text = moveName;
+    //    ppText.text = "PP:" + maxPP;
+    //    typeText.text = "Type " + moveType;
+    //}
+
+
+    public void UpdateMoveDetails(List<string> moves)
     {
-        moveTexts[1].text = moveName;
-        ppText.text = "PP:" + maxPP;
-        typeText.text ="Type " +  moveType;
+
+        ppText.text = "PP:" + PokeMoves.maxxPP;
+        typeText.text = "Type " + PokeMoves.type;
+
+        for (int i = 0; i < moves.Count; i++)
+        {
+            
+            if(i < moveTexts.Count)
+            {
+                moveTexts[i].text = moves[i];
+
+            }
+        }
+
     }
 
 }

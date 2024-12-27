@@ -29,7 +29,7 @@ public class BattleSystem : MonoBehaviour
     private Canvas Canvas;
 
     public DialougeControl dialougeControl;
-    
+
     void Start()
     {
         state = BattleState.START;
@@ -60,9 +60,11 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Player " + playerUnit.unitName);
         Debug.Log("Enemy " + enemyUnit.unitName);
         
+        
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
         
+       
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;

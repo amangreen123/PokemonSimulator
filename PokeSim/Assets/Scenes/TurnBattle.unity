@@ -731,10 +731,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1979851124}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: OnHealButton
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 874584806}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -3167,6 +3167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607482614}
+  - component: {fileID: 1607482615}
   m_Layer: 5
   m_Name: CombatButtons
   m_TagString: Untagged
@@ -3198,6 +3199,20 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1607482615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607482613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  powerText: {fileID: 1553712165}
 --- !u!1 &1648434816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,10 +4020,13 @@ MonoBehaviour:
   type: 
   maxxPP: 
   movePower: 0
+  moveLevel: 0
   accuracy: 
   DC: {fileID: 2108448463}
   Enemy: {fileID: 5223074689345281258, guid: cdc5d1ec7d396794d91cc88b869e818c, type: 3}
   Player: {fileID: 2553112978424033271, guid: aa393e881e173c7408cc46515da64545, type: 3}
+  pokeApi: {fileID: 1979851126}
+  availableMoves: []
 --- !u!1 &2030360574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,11 +4227,11 @@ MonoBehaviour:
   - {fileID: 1462313964}
   - {fileID: 1574315681}
   - {fileID: 824377751}
-  ppText: {fileID: 132624763}
-  typeText: {fileID: 1553712167}
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   battleSystem: {fileID: 1979851124}
   PokeMoves: {fileID: 1979851127}
+  ppText: {fileID: 132624763}
+  typeText: {fileID: 1553712167}
 --- !u!1 &2125445635
 GameObject:
   m_ObjectHideFlags: 0
