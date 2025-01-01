@@ -11,9 +11,7 @@ public class DialougeControl : MonoBehaviour
     [SerializeField] GameObject moveSelector;
     [SerializeField] GameObject moveDetails;
 
-    [SerializeField] List<Text> moveTexts;
-
-    [SerializeField] Color highlightColor;
+    public List<Text> moveTexts;
 
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] PokeMoves PokeMoves;
@@ -36,6 +34,7 @@ public class DialougeControl : MonoBehaviour
     {
         moveSelector.SetActive(enabled);
         moveDetails.SetActive(enabled);
+        
         PokeMoves.PlayMoves();
     }
 
@@ -47,18 +46,27 @@ public class DialougeControl : MonoBehaviour
     //}
 
 
+    //public void getMoveDetails( string pp, string type)
+    //{
+
+    //    ppText.text = "PP: " + pp;
+    //    typeText.text = "Type: " + type;
+    //    Debug.Log("| PP: " + pp + " | Type: " + type);
+    //    //Debug.Log("Move Name  " + Name + "PP: " + pp + " Type: " + type);
+
+    //}
+
+    
     public void UpdateMoveDetails(List<string> moves)
     {
-
-        ppText.text = "PP:" + PokeMoves.maxxPP;
-        typeText.text = "Type " + PokeMoves.type;
-
+   
         for (int i = 0; i < moves.Count; i++)
         {
             
-            if(i < moveTexts.Count)
+            if( i < moveTexts.Count)
             {
                 moveTexts[i].text = moves[i];
+                
 
             }
         }

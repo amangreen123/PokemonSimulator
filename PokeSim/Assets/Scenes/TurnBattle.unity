@@ -1118,6 +1118,7 @@ GameObject:
   - component: {fileID: 625564084}
   - component: {fileID: 625564083}
   - component: {fileID: 625564082}
+  - component: {fileID: 625564085}
   m_Layer: 5
   m_Name: MoveSelector
   m_TagString: Untagged
@@ -1208,6 +1209,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625564080}
   m_CullTransparentMesh: 0
+--- !u!114 &625564085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625564080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  typeText: {fileID: 1553712165}
+  PM: {fileID: 1979851127}
 --- !u!1 &660876542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3183,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607482614}
-  - component: {fileID: 1607482615}
   m_Layer: 5
   m_Name: CombatButtons
   m_TagString: Untagged
@@ -3199,20 +3214,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1607482615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607482613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ppText: {fileID: 132624761}
-  powerText: {fileID: 1553712165}
 --- !u!1 &1648434816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4227,7 +4228,6 @@ MonoBehaviour:
   - {fileID: 1462313964}
   - {fileID: 1574315681}
   - {fileID: 824377751}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
   battleSystem: {fileID: 1979851124}
   PokeMoves: {fileID: 1979851127}
   ppText: {fileID: 132624763}

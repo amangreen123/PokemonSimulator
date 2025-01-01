@@ -358,6 +358,7 @@
 "Assets/Scripts/ButtonHover.cs"
 "Assets/Scripts/DialougeControl.cs"
 "Assets/Scripts/PokeAPI.cs"
+"Assets/Scripts/PokeMoveData.cs"
 "Assets/Scripts/PokeMoves.cs"
 "Assets/Scripts/SimpleJSON.cs"
 "Assets/Scripts/SimpleJSONUnity.cs"
