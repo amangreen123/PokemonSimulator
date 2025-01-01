@@ -25,6 +25,9 @@ public class BattleSystem : MonoBehaviour
 
     public PokeAPI pokeData;
 
+    private PokeMoveData selectedMove;
+   
+
     [SerializeField]
     private Canvas Canvas;
 
@@ -45,9 +48,6 @@ public class BattleSystem : MonoBehaviour
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
-
-        //playerGO.transform.SetParent(Canvas.transform, false);
-        //enemyGO.transform.SetParent(Canvas.transform, false);
 
         pokeData.AssignUnits(playerUnit,enemyUnit);
 
@@ -91,8 +91,21 @@ public class BattleSystem : MonoBehaviour
 
         IEnumerator PlayerAttack()
         {
+
+        //if(selectedMove == null)
+        //{
+        //    dialogueText.text = "Please Select a Move";
+        //    yield return new WaitForSeconds(2f);
+
+        //    StartCoroutine(PlayerAttack());
+        //}
+
+        int damage = selectedMove.movePower;
+
         //Damage Enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        bool isDead = enemyUnit.TakeDamage(damage);
+
+      
 
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful";

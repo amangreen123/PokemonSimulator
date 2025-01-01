@@ -18,22 +18,25 @@ public class Unit : MonoBehaviour
     public int currentHP;
     
     public RawImage pokeImage;
-    private PokeMoves moves;
-    // Damage handling
-    
-   
+    PokeMoveData pokeMoveData;
+
+
     public bool TakeDamage(int dmg)
     {
+
         currentHP -= dmg;
 
         if (currentHP <= 0)
         {
+            Debug.Log("Damage Taken: " + dmg);
             return true;
         }
         else
         {
             return false;
         }
+
+       
     }
     
     // Heal method

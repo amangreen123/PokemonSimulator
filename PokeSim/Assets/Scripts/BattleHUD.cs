@@ -22,3 +22,4 @@ public class BattleHUD : MonoBehaviour
         hpSlider.value = hp;
     }
 }
+

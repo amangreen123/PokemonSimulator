@@ -15,63 +15,44 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public PokeMoves PM;
 
     private string buttonName = "";
-    public Text buttonText;
-
-
-
-    // Start is called before the first frame update
+   
+    
     void Start()
     {
         ppText.SetActive(false);
         typeText.SetActive(false);
+
     }
-
-
-    //Compare available moves list with poke move data list
-    //if the move name is in the list then show the move details
 
     public void setMoveData (string name, string type, string pp)
     {
-        PM.name = name;
-        PM.type = type;
-        PM.maxxPP = pp;
 
-        Debug.Log("Name: " + PM.name + " Type: " + PM.type + " PP: " + PM.maxxPP);
+        ppText.GetComponent<Text>().text = "PP: " + pp;
+        typeText.GetComponent<Text>().text = "Type: " + type;
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         
-       buttonName = GetComponentInChildren<Text>().text;
+         buttonName = GetComponentInChildren<Text>().text;
+         PokeMoveData moveData = PM.GetMoveData(buttonName);
 
-        //loop through pokedata list and compare the name of the move with the button name
-        for (int i = 0; i < PM.pokeMoves.Count; i++)
+         //showing the proper
+         //Debug.Log("Hovered Button Text: " + buttonName);
+
+
+        if (moveData != null)
         {
-            if (PM.pokeMoves[i].name == buttonName)
-            {
-                PM.name = PM.pokeMoves[i].name;
-                PM.type = PM.pokeMoves[i].type;
-                PM.maxxPP = PM.pokeMoves[i].maxxPP;
-                PM.movePower = PM.pokeMoves[i].movePower;
-                PM.moveLevel = PM.pokeMoves[i].moveLevel;
-                PM.accuracy = PM.pokeMoves[i].accuracy;
-
-                ppText.GetComponent<Text>().text = "PP: " + PM.pokeMoves[i].maxxPP;
-                typeText.GetComponent<Text>().text = "Type: " + PM.pokeMoves[i].type;
-            }
+            setMoveData(moveData.name, moveData.type, moveData.maxxPP);
+            ppText.SetActive(true);
+            typeText.SetActive(true);
         }
-
-        ppText.SetActive(true);
-        typeText.SetActive(true);
-
-        //showing the proper
-        Debug.Log("Hovered Button Text: " + buttonName);
-
-        //need to get the text of the button
-        Debug.Log(eventData.pointerEnter.name);
-
-        //PM.showMovesDetails(buttonName);
-        //Debug.Log("Cursor Entering " + buttonName + " GameObject");
+        else
+        {
+            Debug.LogError($"Move '{buttonName}' not found in cache!");
+        }
+            
 
     }
 
@@ -82,7 +63,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         ppText.GetComponent<Text>().text = "PP: " + "Nothing";
         typeText.GetComponent<Text>().text = "Type: " + " nothing";
-        Debug.Log("leaving " + eventData.pointerEnter.name);
+       
     }
 
 }

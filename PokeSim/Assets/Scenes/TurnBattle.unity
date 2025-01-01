@@ -1435,8 +1435,9 @@ GameObject:
   - component: {fileID: 780832038}
   - component: {fileID: 780832037}
   - component: {fileID: 780832036}
+  - component: {fileID: 780832039}
   m_Layer: 5
-  m_Name: AttackButton (2)
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,13 +1503,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 780832037}
+  m_TargetGraphic: {fileID: 1106796886}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979851124}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnAttackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1556,6 +1557,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780832034}
   m_CullTransparentMesh: 0
+--- !u!114 &780832039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780832034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  typeText: {fileID: 1553712165}
+  PM: {fileID: 1979851127}
 --- !u!1 &824377749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,8 +1846,9 @@ GameObject:
   - component: {fileID: 1055450711}
   - component: {fileID: 1055450710}
   - component: {fileID: 1055450709}
+  - component: {fileID: 1055450712}
   m_Layer: 5
-  m_Name: AttackButton (4)
+  m_Name: Button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1897,11 +1914,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1055450710}
+  m_TargetGraphic: {fileID: 1106796886}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979851124}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -1951,6 +1968,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055450707}
   m_CullTransparentMesh: 0
+--- !u!114 &1055450712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055450707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  typeText: {fileID: 1553712165}
+  PM: {fileID: 1979851127}
 --- !u!1 &1062034439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,8 +2063,9 @@ GameObject:
   - component: {fileID: 1106796887}
   - component: {fileID: 1106796886}
   - component: {fileID: 1106796885}
+  - component: {fileID: 1106796888}
   m_Layer: 5
-  m_Name: AttackButton (1)
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2102,7 +2135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 874584806}
+      - m_Target: {fileID: 1979851124}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -2152,6 +2185,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106796883}
   m_CullTransparentMesh: 0
+--- !u!114 &1106796888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106796883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  typeText: {fileID: 1553712165}
+  PM: {fileID: 1979851127}
 --- !u!1 &1107604658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,8 +3250,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1106796884}
   - {fileID: 780832035}
+  - {fileID: 1106796884}
   - {fileID: 2125445636}
   - {fileID: 1055450708}
   - {fileID: 192218620}
@@ -3437,6 +3485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692954181}
+  - component: {fileID: 1692954182}
   m_Layer: 5
   m_Name: CombatButtons
   m_TagString: Untagged
@@ -3465,6 +3514,23 @@ RectTransform:
   m_AnchoredPosition: {x: 229.7, y: 0}
   m_SizeDelta: {x: -474.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1692954182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692954180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533f1f211c1d5d541b4cd1d4619ad8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1106796885}
+  - {fileID: 780832036}
+  - {fileID: 2125445637}
+  - {fileID: 1055450709}
 --- !u!1 &1707450247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,6 +4094,8 @@ MonoBehaviour:
   Player: {fileID: 2553112978424033271, guid: aa393e881e173c7408cc46515da64545, type: 3}
   pokeApi: {fileID: 1979851126}
   availableMoves: []
+  pokeMoves: []
+  BH: {fileID: 625564085}
 --- !u!1 &2030360574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,8 +4312,9 @@ GameObject:
   - component: {fileID: 2125445639}
   - component: {fileID: 2125445638}
   - component: {fileID: 2125445637}
+  - component: {fileID: 2125445640}
   m_Layer: 5
-  m_Name: AttackButton (3)
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4311,11 +4380,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2125445638}
+  m_TargetGraphic: {fileID: 1106796886}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979851124}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -4365,6 +4434,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125445635}
   m_CullTransparentMesh: 0
+--- !u!114 &2125445640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125445635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef0736a6cdb4194484defbd3b70ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppText: {fileID: 132624761}
+  typeText: {fileID: 1553712165}
+  PM: {fileID: 1979851127}
 --- !u!1 &2133724503
 GameObject:
   m_ObjectHideFlags: 0

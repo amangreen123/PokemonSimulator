@@ -9,12 +9,15 @@ using SimpleJSON;
 
 public class PokeMoves : MonoBehaviour
 {
+    //variables for the moves
     public string name;
     public string type;
     public string maxxPP;
     public int movePower;
     public int moveLevel;
     public string accuracy;
+
+    private Dictionary<string, PokeMoveData> moveMap = new Dictionary<string, PokeMoveData>();
 
     private const string URL = "https://pokeapi.co/api/v2/move/";
     private const string HOST = "https://pokeapi.co/api/v2/";
@@ -34,6 +37,16 @@ public class PokeMoves : MonoBehaviour
     {
         StartCoroutine(GetMoves(pokeApi.Player.unitName));
         Debug.Log("Player Name: " + pokeApi.Player.unitName);
+    }
+
+    public PokeMoveData GetMoveData(string moveName)
+    {
+        if(moveMap.TryGetValue(moveName, out PokeMoveData moveData))
+        {
+            return moveData;
+        }
+
+        return null;
     }
 
 
@@ -90,16 +103,6 @@ public class PokeMoves : MonoBehaviour
                         StartCoroutine(GetMoveType(MoveName));
                     }
 
-                    
-
-                    //string MoveName = PokeData["moves"][0]["move"]["name"];
-                    //string MoveLevel = PokeData["moves"][0]["version_group_details"][0]["level_learned_at"];
-
-                    //Debug.Log("Move Name: " + MoveName);
-                    //Debug.Log("Move Level: " + MoveLevel);
-                    //UpdateMoveUI();
-                    //DC.UpdateMoveDetails(MoveName, MoveType, PP);
-
                 }
             }
         }
@@ -128,36 +131,24 @@ public class PokeMoves : MonoBehaviour
                 int movePower = MoveData["power"];
                 string accuracy = MoveData["accuracy"];
 
-                //PokeMoves pokeMoves = new PokeMoves
-                //{
-                //    name = moveName,
-                //    type = MoveType,
-                //    maxxPP = PP,
-                //    movePower = movePower,
-                //    accuracy = accuracy
-                //};
+                PokeMoveData pokeMove = new PokeMoveData
+                {
+                    name = moveName,
+                    type = MoveType,
+                    maxxPP = PP,
+                    movePower = movePower,
+                    accuracy = accuracy
+                };
 
-                name = moveName;
-                maxxPP = PP;
-                type = MoveType;
-                PokeMoveData pokeMoveData = new PokeMoveData();
 
-                pokeMoveData.name = moveName;
-                pokeMoveData.type = MoveType;
-                pokeMoveData.maxxPP = PP;
-                pokeMoveData.movePower = movePower;
-                pokeMoveData.accuracy = accuracy;
+                //cache the move Data
+                moveMap[moveName] = pokeMove;
 
-                pokeMoves.Add(pokeMoveData);
+                //Add to lists
+                pokeMoves.Add(pokeMove);
                 availableMoves.Add(moveName);
-                BH.setMoveData(name, type, maxxPP);
 
-                //Debug.Log($"Move Details:\n" +
-                //          $"  Name: {moveName}\n" +
-                //          $"  Type: {MoveType}\n" +
-                //          $"  PP: {PP}\n" +
-                //          $"  Power: {movePower}\n" +
-                //          $"  Accuracy: {accuracy}");
+                BH.setMoveData(name, type, maxxPP);
 
             }
 

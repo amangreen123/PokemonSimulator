@@ -38,24 +38,6 @@ public class DialougeControl : MonoBehaviour
         PokeMoves.PlayMoves();
     }
 
-    //public void UpdateMoveDetails(string moveName, string moveType, string maxPP)
-    //{
-    //    moveTexts[1].text = moveName;
-    //    ppText.text = "PP:" + maxPP;
-    //    typeText.text = "Type " + moveType;
-    //}
-
-
-    //public void getMoveDetails( string pp, string type)
-    //{
-
-    //    ppText.text = "PP: " + pp;
-    //    typeText.text = "Type: " + type;
-    //    Debug.Log("| PP: " + pp + " | Type: " + type);
-    //    //Debug.Log("Move Name  " + Name + "PP: " + pp + " Type: " + type);
-
-    //}
-
     
     public void UpdateMoveDetails(List<string> moves)
     {
