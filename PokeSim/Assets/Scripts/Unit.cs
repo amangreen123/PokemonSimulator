@@ -24,7 +24,8 @@ public class Unit : MonoBehaviour
     public bool TakeDamage(int dmg)
     {
 
-        currentHP -= dmg;
+        //Ensure that the current HP is not less than 0
+        currentHP = Mathf.Max(currentHP - dmg, 0);
 
         if (currentHP <= 0)
         {
