@@ -28,7 +28,7 @@ public class Unit : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            Debug.Log("Damage Taken: " + dmg);
+            
             return true;
         }
         else

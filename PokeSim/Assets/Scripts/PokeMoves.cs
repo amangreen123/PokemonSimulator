@@ -36,7 +36,7 @@ public class PokeMoves : MonoBehaviour
     public void PlayMoves()
     {
         StartCoroutine(GetMoves(pokeApi.Player.unitName));
-        Debug.Log("Player Name: " + pokeApi.Player.unitName);
+        //Debug.Log("Player Name: " + pokeApi.Player.unitName);
     }
 
     public PokeMoveData GetMoveData(string moveName)
@@ -128,7 +128,7 @@ public class PokeMoves : MonoBehaviour
 
                 string MoveType = MoveData["type"]["name"];
                 string PP = MoveData["pp"];
-                int movePower = MoveData["power"];
+                int Power = MoveData["power"];
                 string accuracy = MoveData["accuracy"];
 
                 PokeMoveData pokeMove = new PokeMoveData
@@ -136,7 +136,7 @@ public class PokeMoves : MonoBehaviour
                     name = moveName,
                     type = MoveType,
                     maxxPP = PP,
-                    movePower = movePower,
+                    movePower = Power,
                     accuracy = accuracy
                 };
 
@@ -148,7 +148,7 @@ public class PokeMoves : MonoBehaviour
                 pokeMoves.Add(pokeMove);
                 availableMoves.Add(moveName);
 
-                BH.setMoveData(name, type, maxxPP);
+                BH.setMoveData(name, type, maxxPP, movePower);
 
             }
 

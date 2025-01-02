@@ -25,6 +25,7 @@ public class BattleSystem : MonoBehaviour
 
     public PokeAPI pokeData;
 
+    [SerializeField]
     private PokeMoveData selectedMove;
    
 
@@ -78,34 +79,47 @@ public class BattleSystem : MonoBehaviour
         dialougeControl.EnableMoveSelector(false);
     }
 
+
     public void OnMoveButton()
     {
+        
         if (state != BattleState.PLAYERTURN)
         {
             return;
         }
 
+        //Debug.Log("Selected Move: " + selectedMove.name + " Power: " + selectedMove.movePower);
+
         dialougeControl.EnableActionSelector(false);
         dialougeControl.EnableMoveSelector(true);
+       
+        //StartCoroutine(PlayerAttack());
+        
     }
 
-        IEnumerator PlayerAttack()
+    public void MoveSelected(PokeMoveData move)
+    {
+        if(state != BattleState.PLAYERTURN)
         {
+            return;
+        }
 
-        //if(selectedMove == null)
-        //{
-        //    dialogueText.text = "Please Select a Move";
-        //    yield return new WaitForSeconds(2f);
+        selectedMove = move;
+        
+        //dialougeControl.EnableActionSelector(false);
+        //dialougeControl.EnableMoveSelector(false);
 
-        //    StartCoroutine(PlayerAttack());
-        //}
+        StartCoroutine(PlayerAttack());
+    }
 
+    IEnumerator PlayerAttack()
+    {
         int damage = selectedMove.movePower;
-
+        Debug.Log("Selected Move: " + selectedMove.name + " Power: " + damage);
+        
         //Damage Enemy
         bool isDead = enemyUnit.TakeDamage(damage);
 
-      
 
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful";
@@ -115,19 +129,21 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             //end the battle
+            Debug.Log("Enemy is Dead");
             state = BattleState.WON;
             EndBattle();
 
         }else {
-            
             //Enemy turn
+            Debug.Log("Enemy survived, switching to enemy turn");
             state = BattleState.ENEMYTURN;
+            Debug.Log("State after attack: " + state);
             StartCoroutine(EnemyTurn());
         }
         
         //check if enemy is dead
         //change state based on 
-        }
+    }
 
     void EndBattle()
     {
@@ -186,6 +202,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
+
         StartCoroutine(PlayerAttack());
     }
 

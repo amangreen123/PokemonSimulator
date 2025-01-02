@@ -28,6 +28,7 @@ public class DialougeControl : MonoBehaviour
     public void EnableActionSelector(bool enabled) { 
         
         actionSelector.SetActive(enabled);
+
     }
 
     public void EnableMoveSelector(bool enabled)
